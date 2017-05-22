@@ -32,3 +32,5 @@ gem 'haml'
 gem 'haml-rails', '~> 0.9'
 gem 'devise'
 gem 'rubocop', require: false
+gem 'twitter-bootstrap-rails'
+gem 'simple_form'
