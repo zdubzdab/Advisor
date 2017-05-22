@@ -1,0 +1,18 @@
+.col-md-12
+  .col-md-10
+    = link_to 'Back', :back
+  .col-md-4
+    %br
+    %br    
+    %p
+      %strong Hotel name:
+      = @hotel.title
+    %p
+      %strong Description:
+      = @hotel.description
+    %p
+      %strong Price:
+      = @hotel.price
+    %p
+      %strong Breakfast:
+      = @hotel.breakfast

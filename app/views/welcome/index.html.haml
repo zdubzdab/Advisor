@@ -1,3 +1,7 @@
-%h1 Welcome#index
+%h3 Best hotels
+.col-md-8.col-md-offset-1
+  = render 'hotels/hotels', collection: @hotels
 .col-md-2
-  %p Find me in app/views/welcome/index.html.haml
+  = link_to 'Create new hotel', new_hotel_path
+  %br
+  = link_to 'All hotels', hotels_path

@@ -1,0 +1,12 @@
+= simple_form_for [@hotel] do |f|
+  = f.error_notification
+
+  .col-md-6
+    = f.input :title
+    = f.input :description
+    = f.input :price
+    = f.input :breakfast, as: :boolean
+
+    = f.submit class: "btn btn-info"
+
+

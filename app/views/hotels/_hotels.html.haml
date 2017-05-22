@@ -1,0 +1,16 @@
+%table.table.table-bordered.table-condensed.table-striped
+  %tr
+    %th Title
+    %th Description
+    %th Price
+    %th Breakfast
+    %th Show
+
+  - @hotels.each do |hotel|
+    %tr
+      %td= hotel.title
+      %td= hotel.description
+      %td= hotel.price
+      %td= hotel.breakfast
+      %td= link_to 'Show', hotel
+
