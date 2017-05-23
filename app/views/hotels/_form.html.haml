@@ -1,4 +1,4 @@
-= simple_form_for [@hotel] do |f|
+= simple_form_for [@hotel], html: {multipart: true } do |f|
   = f.error_notification
 
   .col-md-6
@@ -8,7 +8,8 @@
     = f.input :breakfast, as: :boolean
     = f.simple_fields_for :address do |builder|
       = render 'address_fields', f: builder
-
-    = f.submit class: "btn btn-info"
+    = f.simple_fields_for :images do |f|
+      = f.file_field :photos, multiple: true
+    = f.submit class: "btn btn-info", id: "b_hotel_creation"
 
 

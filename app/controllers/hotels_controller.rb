@@ -10,6 +10,7 @@ class HotelsController < ApplicationController
   def new
     @hotel = Hotel.new
     @hotel.build_address
+    @hotel.images.build
   end
 
   def create
@@ -19,6 +20,7 @@ class HotelsController < ApplicationController
     if @hotel.save
       redirect_to root_path, notice: 'Hotel was successfully created.'
     else
+      @hotel.images.build if @hotel.images.blank?
       render 'new'
     end
   end
@@ -31,7 +33,8 @@ class HotelsController < ApplicationController
 
   def hotel_params
     params.require(:hotel).permit(:title, :description, :price, :breakfast,
-                                  :user_id, address_attributes: [:id,
-                                    :country, :state, :city, :street])
+                                  :user_id, address_attributes:
+                                  [:id, :country, :state, :city, :street],
+                                  images_attributes: [:id, { photos: [] }])
   end
 end
