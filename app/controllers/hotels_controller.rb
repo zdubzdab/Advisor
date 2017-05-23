@@ -9,6 +9,7 @@ class HotelsController < ApplicationController
 
   def new
     @hotel = Hotel.new
+    @hotel.build_address
   end
 
   def create
@@ -30,6 +31,7 @@ class HotelsController < ApplicationController
 
   def hotel_params
     params.require(:hotel).permit(:title, :description, :price, :breakfast,
-                                  :user_id)
+                                  :user_id, address_attributes: [:id,
+                                    :country, :state, :city, :street])
   end
 end

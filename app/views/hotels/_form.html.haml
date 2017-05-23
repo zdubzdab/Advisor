@@ -6,6 +6,8 @@
     = f.input :description
     = f.input :price
     = f.input :breakfast, as: :boolean
+    = f.simple_fields_for :address do |builder|
+      = render 'address_fields', f: builder
 
     = f.submit class: "btn btn-info"
 

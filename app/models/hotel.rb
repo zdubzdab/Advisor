@@ -1,4 +1,5 @@
 class Hotel < ApplicationRecord
+  has_one :address, inverse_of: :hotel
   belongs_to :user
 
   validates :title, presence: true,
@@ -6,4 +7,6 @@ class Hotel < ApplicationRecord
   validates :description, presence: true
   validates :price, presence: true,
                     numericality: true
+
+  accepts_nested_attributes_for :address, allow_destroy: true
 end
