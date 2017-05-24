@@ -2,10 +2,9 @@ class Hotel < ApplicationRecord
   has_one :address, inverse_of: :hotel, dependent: :destroy
   has_many :images, inverse_of: :hotel, dependent: :destroy
   has_many :comments, inverse_of: :hotel, dependent: :destroy
+  has_many :ratings, dependent: :destroy
 
   belongs_to :user
-
-  ratyrate_rateable 'general'
 
   validates :title, presence: true,
                     uniqueness: true

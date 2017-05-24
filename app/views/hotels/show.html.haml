@@ -16,8 +16,12 @@
     %p
       %strong Breakfast:
       = @hotel.breakfast
-    %p
-      = rating_for @hotel, 'general', half_show: true
+
+    #star-rating
+    = hidden_field_tag 'hotel_id', "#{@hotel.id}"
+    = hidden_field_tag 'user_id', "#{current_user.id}"
+    = button_to 'Vote', '#', method: 'get', id: 'b_rating', class: 'btn btn-info'
+
     = render 'comments/form'
 
   - if @hotel.comments.any?
