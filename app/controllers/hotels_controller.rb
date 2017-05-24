@@ -7,6 +7,8 @@ class HotelsController < ApplicationController
 
   def show
     @hotel = Hotel.find(params[:id])
+    @comment = Comment.new
+    @comments = Comment.all
   end
 
   def new

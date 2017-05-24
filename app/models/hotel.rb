@@ -1,6 +1,8 @@
 class Hotel < ApplicationRecord
-  has_one :address, inverse_of: :hotel
-  has_many :images, inverse_of: :hotel
+  has_one :address, inverse_of: :hotel, dependent: :destroy
+  has_many :images, inverse_of: :hotel, dependent: :destroy
+  has_many :comments, inverse_of: :hotel, dependent: :destroy
+
   belongs_to :user
 
   ratyrate_rateable 'general'

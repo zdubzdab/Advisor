@@ -1,0 +1,30 @@
+#author, #main_part, #comment_created_at {
+  background: #F7FBFF;
+  padding-top: 5px;
+  padding-left: 10px;
+  border: 1px solid #0099FF;
+}
+
+#author {
+  position:relative;
+  top:1px;
+}
+
+#comment_created_at {
+  position:relative;
+  left:58.3%;
+  top:1px;
+  text-align: center;
+}
+
+#one_comment {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  position:relative;
+  left:4%;
+}
+
+#comment_text {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}

@@ -11,6 +11,10 @@ module ApplicationHelper
     end
   end
 
+  def date_format(date)
+    date.strftime('%d/%m/%G')
+  end
+
   private
 
     def hide_link_on_some_pages(login, signup)

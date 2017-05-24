@@ -18,3 +18,7 @@
       = @hotel.breakfast
     %p
       = rating_for @hotel, 'general', half_show: true
+    = render 'comments/form'
+
+  - if @hotel.comments.any?
+    = render 'comments/comments'
