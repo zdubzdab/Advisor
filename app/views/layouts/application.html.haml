@@ -1,15 +1,30 @@
 !!!
 %html
   %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title Advisor
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-  %body
-    %p.notice
-      = notice
-    %p.alert
-      = alert
 
-    = yield
+  %body
+    .wrapper.container#container
+      %header
+        %p.main_header Advisor
+        %naw.navbar.navbar-info
+          .navbar-inner
+            %ul.nav.navbar-nav
+              %li.pull-right
+                = show_link_depend_on_user_role((link_to 'Log out',destroy_user_session_path, method: :delete),
+                  (link_to 'Log in', new_user_session_path),
+                  (link_to 'Sign up', new_user_registration_path))
+              %li.pull-right= hide_link_to_main_page(link_to 'Main page', root_path)
+
+      .container-fluid#body
+        .row-fluid
+          #flash
+            %p.notice= notice
+            %p.alert= alert
+          .col-md-12
+
+            = yield
