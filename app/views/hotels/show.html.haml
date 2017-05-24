@@ -16,3 +16,5 @@
     %p
       %strong Breakfast:
       = @hotel.breakfast
+    %p
+      = rating_for @hotel, 'general', half_show: true

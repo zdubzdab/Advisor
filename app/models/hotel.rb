@@ -3,6 +3,8 @@ class Hotel < ApplicationRecord
   has_many :images, inverse_of: :hotel
   belongs_to :user
 
+  ratyrate_rateable 'general'
+
   validates :title, presence: true,
                     uniqueness: true
   validates :description, presence: true
