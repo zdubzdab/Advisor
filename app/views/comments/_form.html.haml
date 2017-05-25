@@ -4,6 +4,6 @@
   .col-md-12
     = f.input :text
     = f.hidden_field :hotel_id, value: @hotel.id
-    = f.hidden_field :user_id, value: current_user.id
+    = f.hidden_field :user_id, value: current_user.id  if current_user
 
     = f.submit class: "btn btn-info"

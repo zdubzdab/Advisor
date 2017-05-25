@@ -17,14 +17,8 @@ $( document ).ready(function() {
     hints       : ['bad', 'poor', 'regular', 'good', 'gorgeous']
   });
 
-  $(function () {
-    $('.b_rating').on('click', function () {
-      
-    });
-  });
-
   $('body').on('click', '#b_rating', function() {
-    var score = $('input[type=hidden]').val();
+    var score = $('.rating_score :input').val();
     var hotel_id = $('#hotel_id').val();
     var user_id = $('#user_id').val();
     var data = {'rating' : { 'score' : score, 'hotel_id' : hotel_id,
@@ -38,7 +32,7 @@ $( document ).ready(function() {
         $('<p>Your vote is accepted</p>').appendTo('.notice');
       },
       error: function(data){
-        $('<p>Your vote is not accepted</p>').appendTo('.notice');
+        $('<p>Your vote is not accepted try again later</p>').appendTo('.notice');
       }
     });
   });

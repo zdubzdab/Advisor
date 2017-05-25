@@ -9,6 +9,7 @@ class HotelsController < ApplicationController
     @hotel = Hotel.find(params[:id])
     @comment = Comment.new
     @comments = Comment.all
+    @avg_rating = @hotel.ratings.average(:score).round(2) if @hotel.ratings.any?
   end
 
   def new

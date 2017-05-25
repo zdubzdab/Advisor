@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 20170524133526) do
   create_table "ratings", force: :cascade do |t|
     t.integer  "hotel_id"
     t.integer  "user_id"
-    t.integer  "score",      default: 0
+    t.integer  "score",      default: 0, null: false
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.index ["hotel_id"], name: "index_ratings_on_hotel_id", using: :btree

@@ -16,12 +16,20 @@
     %p
       %strong Breakfast:
       = @hotel.breakfast
+    %b Rating of this hotel
+    %div{ id: 'rating', data: { score: @avg_rating } }
+  %hr
 
-    #star-rating
-    = hidden_field_tag 'hotel_id', "#{@hotel.id}"
-    = hidden_field_tag 'user_id', "#{current_user.id}"
-    = button_to 'Vote', '#', method: 'get', id: 'b_rating', class: 'btn btn-info'
+  - if current_user
+    .col-md-8
+      .rating_score#star-rating
+      = hidden_field_tag 'hotel_id', "#{@hotel.id}"
+      = hidden_field_tag 'user_id', "#{current_user.id}"
+      = button_to 'Vote', '#', method: 'get', id: 'b_rating', class: 'btn btn-info'
 
+  .col-md-8
+
+  .col-md-8
     = render 'comments/form'
 
   - if @hotel.comments.any?
