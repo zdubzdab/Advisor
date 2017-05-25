@@ -1,0 +1,15 @@
+.image {
+  width: 300px;
+  height: 300px;
+  margin-left: 30px;
+  margin-bottom: 30px;
+}
+
+#photos_grid {
+  margin-top: -50px;
+}
+
+#b_rating {
+  margin-top: 15px;
+  margin-left: 22px;
+}

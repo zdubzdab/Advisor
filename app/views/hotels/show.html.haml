@@ -1,6 +1,6 @@
 .col-md-12
   .col-md-10
-    = link_to 'Back', :back
+    = link_to 'Back', root_path
   .col-md-4
     %br
     %br    
@@ -18,16 +18,20 @@
       = @hotel.breakfast
     %b Rating of this hotel
     %div{ id: 'rating', data: { score: @avg_rating } }
-  %hr
 
+  .col-md-8#photos_grid
+    %h3 Photos
+    - if @hotel.images != []
+      - @hotel.images.each do |image|
+        - image.photos.each do |file|
+          = image_tag(file, class: 'image')
+  %hr
   - if current_user
-    .col-md-8
+    .col-md-4.col-md-offset-5
       .rating_score#star-rating
       = hidden_field_tag 'hotel_id', "#{@hotel.id}"
       = hidden_field_tag 'user_id', "#{current_user.id}"
       = button_to 'Vote', '#', method: 'get', id: 'b_rating', class: 'btn btn-info'
-
-  .col-md-8
 
   .col-md-8
     = render 'comments/form'
