@@ -74,3 +74,8 @@ header {
   margin: 0px;
   padding: 5px;
 }
+
+.ul_list_style {
+  list-style-type:none;
+  padding-left: 10px;
+}

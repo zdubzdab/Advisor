@@ -10,3 +10,6 @@
         .col-md-12#main_part
           #comment_text
             = comment.text
+  %ul.ul_list_style
+    %li
+      = paginate @comments

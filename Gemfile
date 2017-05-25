@@ -36,3 +36,4 @@ gem 'rubocop', require: false
 gem 'twitter-bootstrap-rails'
 gem 'simple_form'
 gem 'carrierwave', '~> 1.0'
+gem 'kaminari', git: 'git://github.com/amatsuda/kaminari.git', branch: 'master'

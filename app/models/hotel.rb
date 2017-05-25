@@ -14,4 +14,7 @@ class Hotel < ApplicationRecord
 
   accepts_nested_attributes_for :address, allow_destroy: true
   accepts_nested_attributes_for :images, allow_destroy: true
+
+  HOTEL_INDEX_PAGE = 10
+  HOTEL_COMMENT_SHOW_PAGE = 3
 end

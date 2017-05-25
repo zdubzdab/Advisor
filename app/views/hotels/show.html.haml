@@ -21,8 +21,8 @@
 
   .col-md-8#photos_grid
     %h3 Photos
-    - if @hotel.images != []
-      - @hotel.images.each do |image|
+    - if @images != []
+      - @images.each do |image|
         - image.photos.each do |file|
           = image_tag(file, class: 'image')
   %hr

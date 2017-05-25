@@ -1,3 +1,21 @@
+GIT
+  remote: git://github.com/amatsuda/kaminari.git
+  revision: 8467dcf773916605ae5a7e3ea2f0a371a523ebc5
+  branch: master
+  specs:
+    kaminari (1.0.1)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.0.1)
+      kaminari-activerecord (= 1.0.1)
+      kaminari-core (= 1.0.1)
+    kaminari-actionview (1.0.1)
+      actionview
+      kaminari-core (= 1.0.1)
+    kaminari-activerecord (1.0.1)
+      activerecord
+      kaminari-core (= 1.0.1)
+    kaminari-core (1.0.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -232,6 +250,7 @@ DEPENDENCIES
   haml-rails (~> 0.9)
   jbuilder (~> 2.5)
   jquery-rails
+  kaminari!
   listen (~> 3.0.5)
   pg (~> 0.18)
   pry
