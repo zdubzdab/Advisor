@@ -5,6 +5,7 @@ class HotelsController < ApplicationController
     @hotels = Hotel.order('created_at ASC')
                    .page(params[:page])
                    .per(Hotel::HOTEL_INDEX_PAGE)
+                   .includes(:address)
   end
 
   def show
@@ -14,6 +15,7 @@ class HotelsController < ApplicationController
                       .order('created_at ASC')
                       .page(params[:page])
                       .per(Hotel::HOTEL_COMMENT_SHOW_PAGE)
+                      .includes(:user)
     @images = @hotel.images
     @avg_rating = @hotel.ratings.average(:score).round(2) if @hotel.ratings.any?
   end

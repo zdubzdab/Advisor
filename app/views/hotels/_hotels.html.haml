@@ -1,19 +1,29 @@
 %table.table.table-bordered.table-condensed.table-striped
   %tr
+    %th Rating
     %th Title
-    %th Description
     %th Price
-    %th Breakfast
+    %th City
+    - if controller_name == 'hotels'
+
+      %th Breakfast
     %th Show
 
   - @hotels.each do |hotel|
     %tr
+      - if controller_name == 'hotels'
+        %td= average_rating(hotel.ratings.average(:score))
+      - else
+        %td= hotel.average_rating.round(2)
       %td= hotel.title
-      %td= hotel.description
-      %td= hotel.price
-      %td= hotel.breakfast
-      %td= link_to 'Show', hotel
+      %td= number_to_currency(hotel.price)
+      %td= hotel.city
+      - if controller_name == 'hotels'
+        
+        %td= breakfast(hotel.breakfast)
+      %td= link_to 'Show', hotel_path(hotel.id)
+
 
   %ul.ul_list_style
     %li
-      = paginate @hotels
+      = paginate @hotels if controller_name == 'hotels'
