@@ -2,7 +2,7 @@ class HotelsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @hotels = Hotel.order('created_at ASC')
+    @hotels = Hotel.order('created_at DESC')
                    .page(params[:page])
                    .per(Hotel::HOTEL_INDEX_PAGE)
                    .includes(:address)

@@ -4,23 +4,16 @@
     %th Title
     %th Price
     %th City
-    - if controller_name == 'hotels'
-
-      %th Breakfast
+    = show_element_on_desired_page('hotels', 'th', 'Breakfast')
     %th Show
 
   - @hotels.each do |hotel|
     %tr
-      - if controller_name == 'hotels'
-        %td= average_rating(hotel.ratings.average(:score))
-      - else
-        %td= hotel.average_rating.round(2)
+      = count_rating('hotels', 'td', hotel)
       %td= hotel.title
       %td= number_to_currency(hotel.price)
       %td= hotel.city
-      - if controller_name == 'hotels'
-        
-        %td= breakfast(hotel.breakfast)
+      = show_breakfast_on_desired_page('hotels', 'td', hotel)
       %td= link_to 'Show', hotel_path(hotel.id)
 
 
