@@ -19,5 +19,8 @@ class Hotel < ApplicationRecord
   WELCOME_INDEX_PAGE = 5
   HOTEL_COMMENT_SHOW_PAGE = 5
 
+  delegate :country, to: :address
+  delegate :state, to: :address
   delegate :city, to: :address
+  delegate :street, to: :address
 end

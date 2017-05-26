@@ -1,0 +1,4 @@
+%h3 Photos
+- @images.each do |image|
+  - image.photos.each do |file|
+    = image_tag(file, class: 'image')

@@ -1,15 +1,16 @@
-.col-md-12
-  %h4 Comments
-  - @comments.each do |comment|
-    .col-md-10#one_comment
-      %ol
-        .col-md-3#author
-          = comment.email
-        .col-md-2#comment_created_at
-          = date_format(comment.created_at)
-        .col-md-12#main_part
-          #comment_text
-            = comment.text
-  %ul.ul_list_style
-    %li
-      = paginate @comments
+- if @hotel.comments.any?
+  .col-md-12
+    %h4 Comments
+    - @comments.each do |comment|
+      .col-md-10#one_comment
+        %ol
+          .col-md-3#author
+            = comment.email
+          .col-md-2#comment_created_at
+            = date_format(comment.created_at)
+          .col-md-12#main_part
+            #comment_text
+              = comment.text
+    %ul.ul_list_style
+      %li
+        = paginate @comments

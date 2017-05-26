@@ -1,0 +1,29 @@
+%br   
+%p
+  %strong Hotel name:
+  = @hotel.title
+%p
+  %strong Description:
+  = @hotel.description
+%p
+  %strong Price:
+  = @hotel.price
+%p
+  %strong Breakfast:
+  = @hotel.breakfast
+%hr
+%p
+  %strong Country:
+  = @hotel.country
+%p
+  %strong State:
+  = @hotel.state
+%p
+  %strong City:
+  = @hotel.city
+%p
+  %strong Street:
+  = @hotel.street
+%hr
+%b Rating of this hotel
+%div{ id: 'rating', data: { score: @avg_rating } }

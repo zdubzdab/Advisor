@@ -16,7 +16,6 @@
       = show_breakfast_on_desired_page('hotels', 'td', hotel)
       %td= link_to 'Show', hotel_path(hotel.id)
 
-
   %ul.ul_list_style
     %li
       = paginate @hotels if controller_name == 'hotels'

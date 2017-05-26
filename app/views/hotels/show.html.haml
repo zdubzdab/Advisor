@@ -1,40 +1,15 @@
-.col-md-12
-  .col-md-10
-    = link_to 'Back', root_path
-  .col-md-4
-    %br
-    %br    
-    %p
-      %strong Hotel name:
-      = @hotel.title
-    %p
-      %strong Description:
-      = @hotel.description
-    %p
-      %strong Price:
-      = @hotel.price
-    %p
-      %strong Breakfast:
-      = @hotel.breakfast
-    %b Rating of this hotel
-    %div{ id: 'rating', data: { score: @avg_rating } }
+.col-md-10
+  = link_to 'Back', root_path
+.col-md-3
+  = render 'hotel_info'
 
-  .col-md-8#photos_grid
-    %h3 Photos
-    - if @images != []
-      - @images.each do |image|
-        - image.photos.each do |file|
-          = image_tag(file, class: 'image')
-  %hr
-  - if current_user
-    .col-md-4.col-md-offset-5
-      .rating_score#star-rating
-      = hidden_field_tag 'hotel_id', "#{@hotel.id}"
-      = hidden_field_tag 'user_id', "#{current_user.id}"
-      = link_to 'Vote', '#', id: 'b_rating', class: 'btn btn-info'
+.col-md-8#photos_grid
+  = render 'photos'
 
-  .col-md-8
-    = render 'comments/form'
+.col-md-4.col-md-offset-5
+  = render 'rating'
 
-  - if @hotel.comments.any?
-    = render 'comments/comments'
+.col-md-8
+  = render 'comments/form'
+
+= render 'comments/comments'

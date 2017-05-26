@@ -1,0 +1,5 @@
+- if current_user
+  .rating_score#star-rating
+  = hidden_field_tag 'hotel_id', "#{@hotel.id}"
+  = hidden_field_tag 'user_id', "#{current_user.id}"
+  = link_to 'Vote', '#', id: 'b_rating', class: 'btn btn-info'
