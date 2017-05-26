@@ -21,7 +21,7 @@ module ApplicationHelper
     if current_page?('/users/sign_in')
       signup
     else
-      login      
+      login
     end
   end
 end

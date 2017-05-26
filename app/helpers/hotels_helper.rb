@@ -12,7 +12,7 @@ module HotelsHelper
     if controller_name == name
       content_tag(html_element, hotel.ratings.average(:score).to_f.round(2))
     else
-      content_tag(html_element, hotel.average_rating.round(2))      
+      content_tag(html_element, hotel.average_rating.round(2))
     end
   end
 
