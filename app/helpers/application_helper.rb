@@ -1,8 +1,4 @@
 module ApplicationHelper
-  def hide_link_to_main_page(link)
-    link unless current_page?('/')
-  end
-
   def show_link_depend_on_user_role(logout, login, signup)
     if current_user
       logout
@@ -15,13 +11,17 @@ module ApplicationHelper
     date.strftime('%d/%m/%G')
   end
 
+  def show_link_on_desired_page(link, page)
+    link unless current_page?(page)
+  end
+
   private
 
-    def hide_link_on_some_pages(login, signup)
-      if request.original_url.split('/').last == 'sign_in'
-        signup
-      else
-        login
-      end
+  def hide_link_on_some_pages(login, signup)
+    if current_page?('/users/sign_in')
+      signup
+    else
+      login      
     end
+  end
 end

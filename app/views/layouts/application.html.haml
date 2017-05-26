@@ -14,11 +14,16 @@
         %naw.navbar.navbar-info
           .navbar-inner
             %ul.nav.navbar-nav
-              %li.pull-right
+              %li
+                = show_link_on_desired_page((link_to 'Main page', root_path), '/')
+              %li
+                = show_link_on_desired_page((link_to 'New hotel', new_hotel_path), '/hotels/new')
+              %li
+                = show_link_on_desired_page((link_to 'All hotels', hotels_path), '/hotels')
+              %li
                 = show_link_depend_on_user_role((link_to 'Log out',destroy_user_session_path, method: :delete),
                   (link_to 'Log in', new_user_session_path),
                   (link_to 'Sign up', new_user_registration_path))
-              %li.pull-right= hide_link_to_main_page(link_to 'Main page', root_path)
 
       .container-fluid#body
         .row-fluid
