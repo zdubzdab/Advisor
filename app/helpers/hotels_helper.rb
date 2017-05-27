@@ -16,8 +16,6 @@ module HotelsHelper
     end
   end
 
-  private
-
   def get_breakfast(arg)
     if arg == false
       'yes'
