@@ -1,8 +1,8 @@
-%h3 New placement
+%h3 New hotel
 = simple_form_for [@hotel], html: { multipart: true } do |f|
   = f.error_notification
 
-  .col-md-8
+  .col-md-8.col-md-offset-2
     = f.input :title
     = f.input :description
     = f.input :price

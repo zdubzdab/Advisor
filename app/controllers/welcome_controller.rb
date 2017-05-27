@@ -3,7 +3,7 @@ class WelcomeController < ApplicationController
     @hotels = Hotel.joins(:ratings)
                    .page(params[:page])
                    .per(Hotel::WELCOME_INDEX_PAGE)
-                   .select('hotels.title, hotels.price, hotels.id, ' +
+                   .select('hotels.title, hotels.price, hotels.id, '\
                       'avg(ratings.score) as average_rating')
                    .group('hotels.title, hotels.price, hotels.id')
                    .order('average_rating DESC')

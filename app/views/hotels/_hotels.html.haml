@@ -10,7 +10,7 @@
   - @hotels.each do |hotel|
     %tr
       = count_rating('hotels', 'td', hotel)
-      %td= hotel.title
+      %td#hotel_titles= hotel.title
       %td= number_to_currency(hotel.price)
       %td= hotel.city
       = show_breakfast_on_desired_page('hotels', 'td', hotel)

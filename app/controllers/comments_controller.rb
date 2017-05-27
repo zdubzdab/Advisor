@@ -9,9 +9,11 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
 
     if @comment.save
-      redirect_to :back, notice: 'Comment was successfully created.'
+      redirect_back(fallback_location: root_path, notice: 'Comment was'\
+        ' successfully created.')
     else
-      redirect_to :back, notice: "Text of comment can't be blank."
+      redirect_back(fallback_location: root_path, notice: 'Text of'\
+        " comment can't be blank.")
     end
   end
 
