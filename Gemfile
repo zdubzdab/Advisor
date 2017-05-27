@@ -39,7 +39,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'haml'
 gem 'haml-rails', '~> 0.9'
 gem 'devise'
-gem 'rubocop', require: false
 gem 'twitter-bootstrap-rails'
 gem 'simple_form'
 gem 'carrierwave', '~> 1.0'

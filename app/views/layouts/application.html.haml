@@ -15,15 +15,16 @@
           .navbar-inner
             %ul.nav.navbar-nav
               %li
-                = show_link_on_desired_page((link_to 'Main page', root_path), '/')
+                = show_link_on_desired_page((link_to 'Main page', root_path),current_page?('/'))
               %li
-                = show_link_on_desired_page((link_to 'New hotel', new_hotel_path), '/hotels/new')
+                = show_link_on_desired_page((link_to 'New hotel', new_hotel_path),current_page?('/hotels/new'))
               %li
-                = show_link_on_desired_page((link_to 'All hotels', hotels_path), '/hotels')
+                = show_link_on_desired_page((link_to 'All hotels', hotels_path),current_page?('/hotels'))
               %li
                 = show_link_depend_on_user_role((link_to 'Log out',destroy_user_session_path, method: :delete),
                   (link_to 'Log in', new_user_session_path),
-                  (link_to 'Sign up', new_user_registration_path))
+                  (link_to 'Sign up', new_user_registration_path), current_user,
+                  current_page?('/users/sign_in'))
 
       .container-fluid#body
         .row-fluid
