@@ -3,17 +3,15 @@
     %th Rating
     %th Title
     %th Price
-    %th City
     = show_element_on_desired_page(controller_name, 'hotels', 'th', 'Breakfast')
     %th Show
 
   - @hotels.each do |hotel|
     %tr
-      = count_rating(controller_name, 'hotels', 'td', hotel)
+      %td= count_rating(hotel)
       %td#hotel_titles= hotel.title
       %td= number_to_currency(hotel.price)
-      %td= hotel.city
-      = show_breakfast_on_desired_page(controller_name, 'hotels', 'td', hotel)
+      = show_element_on_desired_page(controller_name, 'hotels', 'td', get_breakfast(hotel.breakfast))
       %td= link_to 'Show', hotel_path(hotel.id)
 
   %ul.ul_list_style

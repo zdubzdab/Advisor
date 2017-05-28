@@ -12,4 +12,8 @@
     = f.simple_fields_for :images do |f|
       = f.file_field :photos, multiple: true
     %br
+    = f.simple_fields_for :ratings do |f|
+      = f.input :score, input_html: { value: '', max: '5', step: '1' }, label: 'Rating(max 5 stars)'
+      = f.hidden_field :user_id, value: "#{current_user.id}"
+
     = f.submit class: 'btn btn-info', id: 'b_hotel_creation'

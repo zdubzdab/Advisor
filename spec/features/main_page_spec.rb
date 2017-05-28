@@ -6,11 +6,11 @@ feature 'Main page' do
   before do
     hotel1 = FactoryGirl.create(:hotel, user: user, title: 'Paradise')
     FactoryGirl.create(:address, hotel: hotel1)
-    FactoryGirl.create(:rating, hotel: hotel1, user: user, score: 4.8)
+    FactoryGirl.create(:rating, hotel: hotel1, user: user, score: 4)
 
     hotel2 = FactoryGirl.create(:hotel, user: user, title: 'Chaika')
     FactoryGirl.create(:address, hotel: hotel2)
-    FactoryGirl.create(:rating, hotel: hotel2, user: user, score: 3.9)
+    FactoryGirl.create(:rating, hotel: hotel2, user: user, score: 3)
 
     hotel3 = FactoryGirl.create(:hotel, user: user, title: 'Adverty')
     FactoryGirl.create(:address, hotel: hotel3)
@@ -18,15 +18,11 @@ feature 'Main page' do
 
     hotel4 = FactoryGirl.create(:hotel, user: user, title: 'Stone')
     FactoryGirl.create(:address, hotel: hotel4)
-    FactoryGirl.create(:rating, hotel: hotel4, user: user, score: 0.8)
+    FactoryGirl.create(:rating, hotel: hotel4, user: user, score: 1)
 
     hotel5 = FactoryGirl.create(:hotel, user: user, title: 'Lviv')
     FactoryGirl.create(:address, hotel: hotel5)
-    FactoryGirl.create(:rating, hotel: hotel5, user: user, score: 2.3)
-
-    hotel6 = FactoryGirl.create(:hotel, user: user, title: 'Best')
-    FactoryGirl.create(:address, hotel: hotel6)
-    FactoryGirl.create(:rating, hotel: hotel6, user: user, score: 1.8)
+    FactoryGirl.create(:rating, hotel: hotel5, user: user, score: 2)
 
     visit '/'
   end
@@ -35,7 +31,6 @@ feature 'Main page' do
     scenario 'description' do
       expect(page).to have_content('Advisor')
       expect(page).to have_selector('h3', text: 'Best hotels')
-      expect(page).not_to have_content('Stone')
       expect(page).to have_link('New hotel')
       expect(page).to have_link('All hotels')
       expect(page).to have_link('Log in')
@@ -51,7 +46,7 @@ feature 'Main page' do
     scenario 'hotels should be in required sequence' do
       hotel_names = page.all('td#hotel_titles').map(&:text)
       expect(hotel_names).to eq ['Adverty', 'Paradise', 'Chaika', 'Lviv',
-        'Best']
+        'Stone']
     end
   end
 

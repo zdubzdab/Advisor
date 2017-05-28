@@ -6,11 +6,11 @@ feature 'Hotel index page' do
   before do
     hotel1 = FactoryGirl.create(:hotel, user: user, title: 'Paradise')
     FactoryGirl.create(:address, hotel: hotel1)
-    FactoryGirl.create(:rating, hotel: hotel1, user: user, score: 4.8)
+    FactoryGirl.create(:rating, hotel: hotel1, user: user, score: 4)
 
     hotel2 = FactoryGirl.create(:hotel, user: user, title: 'Chaika')
     FactoryGirl.create(:address, hotel: hotel2)
-    FactoryGirl.create(:rating, hotel: hotel2, user: user, score: 3.9)
+    FactoryGirl.create(:rating, hotel: hotel2, user: user, score: 5)
 
     hotel3 = FactoryGirl.create(:hotel, user: user, title: 'Adverty')
     FactoryGirl.create(:address, hotel: hotel3)
@@ -18,15 +18,15 @@ feature 'Hotel index page' do
 
     hotel4 = FactoryGirl.create(:hotel, user: user, title: 'Stone')
     FactoryGirl.create(:address, hotel: hotel4)
-    FactoryGirl.create(:rating, hotel: hotel4, user: user, score: 0.8)
+    FactoryGirl.create(:rating, hotel: hotel4, user: user, score: 1)
 
     hotel5 = FactoryGirl.create(:hotel, user: user, title: 'Lviv')
     FactoryGirl.create(:address, hotel: hotel5)
-    FactoryGirl.create(:rating, hotel: hotel5, user: user, score: 2.3)
+    FactoryGirl.create(:rating, hotel: hotel5, user: user, score: 2)
 
     hotel6 = FactoryGirl.create(:hotel, user: user, title: 'Best')
     FactoryGirl.create(:address, hotel: hotel6)
-    FactoryGirl.create(:rating, hotel: hotel6, user: user, score: 1.8)
+    FactoryGirl.create(:rating, hotel: hotel6, user: user, score: 1)
 
     visit '/hotels'
   end

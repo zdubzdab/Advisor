@@ -2,10 +2,14 @@ class HotelsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @hotels = Hotel.order('created_at DESC')
+    @hotels = Hotel.joins(:ratings)
+                   .select('hotels.title, hotels.price, hotels.id, '\
+                      'hotels.breakfast, hotels.created_at, '\
+                      'avg(ratings.score) as average_rating')
+                   .group('hotels.title, hotels.price, hotels.id')
+                   .order('created_at DESC')
                    .page(params[:page])
-                   .per(Hotel::HOTEL_INDEX_PAGE)
-                   .includes(:address)
+                   .per(Hotel::HOTEL_INDEX_PAGE)               
   end
 
   def show
@@ -24,6 +28,7 @@ class HotelsController < ApplicationController
     @hotel = Hotel.new
     @hotel.build_address
     @hotel.images.build
+    @hotel.ratings.build
   end
 
   def create
@@ -34,6 +39,7 @@ class HotelsController < ApplicationController
       redirect_to root_path, notice: 'Hotel was successfully created.'
     else
       @hotel.images.build if @hotel.images.blank?
+      @hotel.ratings.build if @hotel.ratings.blank?
       render 'new'
     end
   end
@@ -43,7 +49,8 @@ class HotelsController < ApplicationController
   def hotel_params
     params.require(:hotel).permit(:title, :description, :price, :breakfast,
                                   :user_id, address_attributes:
-                                  [:id, :country, :state, :city, :street],
-                                  images_attributes: [:id, { photos: [] }])
+                                  [:country, :state, :city, :street],
+                                  ratings_attributes: [:score, :user_id],
+                                  images_attributes: [{ photos: [] }])
   end
 end

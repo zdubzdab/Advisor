@@ -83,6 +83,22 @@ feature 'Hotel creation' do
         expect(page).to have_content("Countrycan't be blank * Statecan't"\
           " be blank * Citycan't be blank * Streetcan't be blank")
       end
+
+
+      scenario 'blank rating' do
+        fill_in 'Title',              with: ''
+        fill_in 'Description',        with: ''
+        fill_in 'Price',              with: ''
+
+        fill_in 'Country',            with: 'Description'
+        fill_in 'State',              with: 'Description'
+        fill_in 'City',               with: 'Description'
+        fill_in 'Street',             with: 'Description'
+        fill_in 'Rating(max 5 stars)',with: ''
+        click_on 'Create Hotel'
+
+        expect(page).to have_content("Rating(max 5 stars)can't be blank")
+      end
     end
 
     scenario 'successful' do
@@ -96,6 +112,7 @@ feature 'Hotel creation' do
       fill_in 'Street',             with: 'Country'
       page.attach_file('hotel[images_attributes][0][photos][]', Rails.root +
         'spec/assets/images.png')
+      fill_in 'Rating(max 5 stars)',with: 4
       click_on 'Create Hotel'
 
       expect(page).to have_content('Hotel was successfully created.')
